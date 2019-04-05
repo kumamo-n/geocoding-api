@@ -4,6 +4,8 @@ class Client {
 
     private $base_url;
 
+    private $responseResult;
+
     public function __construct($base_url = 'https://map.yahooapis.jp/geocode/V1/geoCoder')
     {
         $this->base_url = $base_url;
@@ -17,10 +19,13 @@ class Client {
             CURLOPT_RETURNTRANSFER  => true,
             CURLOPT_CUSTOMREQUEST => 'GET',
         ]);
-        $response = json_encode(curl_exec($curl));
+        $json = curl_exec($curl);
+        $jsonEncode = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP');
 
-        curl_close($curl);
-        return $response;
+        $obj = json_decode($jsonEncode);
+        $this->responseResult = $obj;
+
+        return $this->responseResult;
     }
 }
 

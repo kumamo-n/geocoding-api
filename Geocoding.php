@@ -1,25 +1,17 @@
 <?php
 require_once 'Client.php';
+require_once 'Params.php';
 
 class Geocoding {
-    public function main() {
-        $address = $_POST['address'];
-        $post = new Client();
 
-        $response = $post->apiRequest([
-            'appid' => 'oshigoto',
-            'query' => $address,
-            'ei' => '',
-            'lat' => '',
-            'lon' => '',
-            'datum' => 'tky',
-            'ac' => '',
-            'al' => '',
-            'ar' => '',
-            'recursive' => true,
-            'results' => true,
-            'output' => 'xml',
-        ]);
+    public function main() {
+        $post = new Client();
+        $params = new Params();
+
+        //if (empty($address)) {
+        //    return $params->emptyResponse();
+        //}
+        $response = $post->apiRequest($params->getRequestPayload());
         echo $response;
     }
 }

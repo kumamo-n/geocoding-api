@@ -1,8 +1,12 @@
 <?php
+namespace geoconding;
+
 require_once 'Client.php';
 require_once 'Params.php';
 
-class Geocoding {
+
+
+class Geocoding  {
 
     public function main() {
         $post = new Client();
@@ -11,7 +15,7 @@ class Geocoding {
         //if (empty($address)) {
         //    return $params->emptyResponse();
         //}
-        $response = $post->apiRequest($params->getRequestPayload());
+        $response = $post->request($params->getRequestPayload());
         echo $response;
     }
 }

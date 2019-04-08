@@ -1,5 +1,7 @@
 <?php
 
+namespace geoconding;
+
 class Params {
 
     const RESULT_NOT_FOUND = 'not_found';
@@ -100,20 +102,27 @@ class Params {
         ];
     }
     public function getRequestPayload() {
-        $this->config = [
-            'appid'     => $this->id(),
-            'query'     => $this->address('東京都葛飾区'),
-            'ei'        => '',
-            'lat'       => '',
-            'lon'       => '',
-            'datum'     => 'tky',
-            'ac'        => '',
-            'al'        => '',
-            'ar'        => '',
-            'recursive' => true,
-            'results'   => true,
-            'output'    => 'json',
-        ];
-        return $this->config;
+        $this->config = $this->getParams();
+        return $this;
     }
+
+    protected function getParams()
+    {
+        $request = [
+            'appid' => $this->id(),
+            'query' => $this->address('東京都葛飾区堀切'),
+            'ei' => '',
+            'lat' => '',
+            'lon' => '',
+            'datum' => 'tky',
+            'ac' => '',
+            'al' => '',
+            'ar' => '',
+            'recursive' => true,
+            'results' => true,
+            'output' => 'json',
+        ];
+        return $request;
+    }
+
 }

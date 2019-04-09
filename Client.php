@@ -3,48 +3,29 @@ namespace  geoconding;
 require_once 'Params.php';
 require_once 'Response.php';
 
-class Client extends Params {
+class Client {
 
-    private $base_url;
+    const BASE_URL = 'https://map.yahooapis.jp/geocode/V1/geoCoder';
 
-    private $result;
-
-    public function __construct($base_url = 'https://map.yahooapis.jp/geocode/V1/geoCoder')
-    {
-        $this->base_url = $base_url;
-    }
-
-
-    public function request($params) {
+    public static function request($params) {
         $curl = curl_init();
         $param = http_build_query($params);
         curl_setopt_array($curl, [
-            CURLOPT_URL => $this->base_url.'?'.$param,
+            CURLOPT_URL => self::BASE_URL.'?'.$param,
             CURLOPT_RETURNTRANSFER  => true,
             CURLOPT_CUSTOMREQUEST => 'GET',
         ]);
         $json = curl_exec($curl);
 
+        $obj = json_decode($json,true);
 
-        $jsonEncode = $this->encode($json);
+        var_dump($obj['ResultInfo']['Status']);
+        exit;
 
-        $obj = json_decode($jsonEncode,true);
         $response = new Response($obj);
 
-        $result = $response->response();
-        return $result;
+        return $response->arrayResult();
     }
-
-    protected function encode($json) {
-        $jsonEncode = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP');
-        return $jsonEncode;
-    }
-
-    protected function resultResponse($result){
-        $this->result = $result;
-        return $this->result;
-    }
-
 }
 
 

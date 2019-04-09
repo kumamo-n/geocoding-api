@@ -4,18 +4,15 @@ namespace geoconding;
 require_once 'Client.php';
 require_once 'Params.php';
 
-
-
 class Geocoding  {
 
     public function main() {
-        $post = new Client();
-        $params = new Params();
+        $params = new Params('東京都葛飾区堀切');
 
         //if (empty($address)) {
         //    return $params->emptyResponse();
         //}
-        $response = $post->request($params->getRequestPayload());
+        $response = Client::request($params);
         echo $response;
     }
 }

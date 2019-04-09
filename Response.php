@@ -3,27 +3,30 @@ namespace geoconding;
 
 class Response {
 
-    public $Id;
+    public $id;
 
-    public $Gid;
+    public $gid;
 
-    public $Name;
+    public $name;
 
-    public $Geometry;
+    public $geometry;
 
+    static public $feature;
 
     public function __construct(array $params)
     {
         $result = $params['Feature'];
         foreach ($result as $key => $value) {
-            $this->Id = $value['Id'];
-            $this->Gid = $value['Gid'];
-            $this->Name = $value['Name'];
-            $this->Geometry = $value['Geometry'];
-            $feature[] = $this;
+            $this->id = $value['Id'];
+            $this->gid = $value['Gid'];
+            $this->name = $value['Name'];
+            $this->geometry = $value['Geometry'];
+            self::$feature[] = $this;
         }
     }
 
-    public function response() {}
+    public function arrayResult(){
+        return self::$feature;
+    }
 
 }

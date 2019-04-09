@@ -8,33 +8,33 @@ class Params {
     /**
      * アプリケーションID
      */
-    protected $appid = 'oshigoto';
+    public $appid = 'oshigoto';
 
     /**
      * 住所文字列
      */
-    protected $query;
+    public $query;
 
     /**
      * 入力検索文字列のエンコード形式
      */
-    protected $ei;
+    public $ei;
 
     /**
      * 中心の緯度
      */
-    protected $lat;
+    public $lat;
 
     /**
      * 中心の経度
      */
-    protected $lon;
+    public $lon;
 
     /** 指定した緯度経度の測地系：
      * wgs - 世界測地系（デフォルト）
      * tky - 日本測地系
      */
-    protected $datum = 'tky';
+    public $datum = 'tky';
 
     /**
      * 住所コード（JIS X 0401）です。
@@ -42,7 +42,7 @@ class Params {
      * ex) 北海道:01, 札幌市中央区:01101
      *
      */
-    protected $ac;
+    public $ac;
 
     /**
      * 住所検索レベルです。arオプションと組み合わせて指定されたレベルの住所を検索します。
@@ -52,7 +52,7 @@ class Params {
      * - 丁目、字レベル (ex：東京都港区六本木1丁目)
      *
      */
-    protected $al;
+    public $al;
 
     /**
      * 住所レベルの範囲です。alオプションと組み合わせて指定されたレベルの住所を検索します。
@@ -61,18 +61,18 @@ class Params {
      * eq - 等しい
      *
      */
-    protected $ar;
+    public $ar;
 
     /**
      * trueを指定すると、指定した住所レベルでマッチしなかった場合、上位のレベルで再検索を行います。
      *
      */
-    protected $recursive = true;
+    public $recursive = true;
 
     /**
      * 表示件数（デフォルト: 10、最大：100）。
      */
-    protected $results;
+    public $results;
 
     /**
      * 出力形式：
@@ -80,49 +80,10 @@ class Params {
      * json - JSON形式
      *
      */
-    protected $output = 'json';
+    public $output = 'json';
 
-    private $config;
-
-    public function id() {
-        return $this->appid;
-    }
-
-    public function address($address) {
-        $this->query = $address;
-        return $this;
-    }
-
-
-    public function emptyResponse() {
-        return [
-            'lat' => 0,
-            'lng' => 0,
-            'output' => static::RESULT_NOT_FOUND,
-        ];
-    }
-    public function getRequestPayload() {
-        $this->config = $this->getParams();
-        return $this;
-    }
-
-    protected function getParams()
+    public function __construct($query)
     {
-        $request = [
-            'appid' => $this->id(),
-            'query' => $this->address('東京都葛飾区堀切'),
-            'ei' => '',
-            'lat' => '',
-            'lon' => '',
-            'datum' => 'tky',
-            'ac' => '',
-            'al' => '',
-            'ar' => '',
-            'recursive' => true,
-            'results' => true,
-            'output' => 'json',
-        ];
-        return $request;
+        $this->query = $query;
     }
-
 }

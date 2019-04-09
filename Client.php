@@ -3,7 +3,7 @@ namespace  geoconding;
 require_once 'Params.php';
 require_once 'Response.php';
 
-class Client {
+class Client extends Response {
 
     const BASE_URL = 'https://map.yahooapis.jp/geocode/V1/geoCoder';
 
@@ -18,9 +18,6 @@ class Client {
         $json = curl_exec($curl);
 
         $obj = json_decode($json,true);
-
-        var_dump($obj['ResultInfo']['Status']);
-        exit;
 
         $response = new Response($obj);
 

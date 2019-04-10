@@ -15,20 +15,11 @@ class Response {
 
     public $status;
 
-    public $error;
+    private $feature = [];
 
-    static public $feature;
 
     public function __construct(array $params)
     {
-        if ($params['Error']) {
-            $this->error = $params['Error']['Message'];
-            throw new Exception($this->error);
-        } else if(!array_key_exists('Feature', $params)) {
-            $this->error = '該当する住所は見つかりませんでした';
-            throw new Exception($this->error);
-        }
-
         $this->status = $params['ResultInfo']['Status'];
         $result = $params['Feature'];
         foreach ($result as $key => $value) {
@@ -36,12 +27,17 @@ class Response {
             $this->gid = $value['Gid'];
             $this->name = $value['Name'];
             $this->geometry = $value['Geometry'];
-            self::$feature[] = $this;
+            $this->feature[] = $this;
         }
     }
 
     public function arrayResult(){
-        return self::$feature;
+        return $this->feature;
+    }
+
+    public function emptyResposne() {
+        self::$feature[] = $this;
+        return $this;
     }
 
 }

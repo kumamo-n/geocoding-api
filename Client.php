@@ -20,6 +20,8 @@ class Client extends Response {
         $obj = json_decode($json,true);
 
         $response = new Response($obj);
+        var_dump($response->arrayResult());
+        exit;
 
         return $response->arrayResult();
     }

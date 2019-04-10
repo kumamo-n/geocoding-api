@@ -1,9 +1,9 @@
 <?php
 namespace geoconding;
 
-use \Exception;
+require_once 'Feature.php';
 
-class Response {
+class Response  extends Feature {
 
     public $id;
 
@@ -15,23 +15,18 @@ class Response {
 
     public $status;
 
-    public $feature = [];
-
     public function __construct(array $params)
     {
         $this->status = $params['ResultInfo']['Status'];
         $result = $params['Feature'];
+        $feature = new Feature();
         foreach ($result as $key => $value) {
-            $this->id = $value['Id'];
-            $this->gid = $value['Gid'];
-            $this->name = $value['Name'];
+            $this->id  = $value['Id'];
+            $this->gid  = $value['Gid'];
+            $this->name  = $value['Name'];
             $this->geometry = $value['Geometry'];
-            $this->feature[] = $this;
+            $feature->setFeature($this);
         }
-    }
-
-    public function arrayResult(){
-        return $this->feature;
     }
 
 }

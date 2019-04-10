@@ -15,8 +15,7 @@ class Response {
 
     public $status;
 
-    private $feature = [];
-
+    public $feature = [];
 
     public function __construct(array $params)
     {
@@ -33,11 +32,6 @@ class Response {
 
     public function arrayResult(){
         return $this->feature;
-    }
-
-    public function emptyResposne() {
-        self::$feature[] = $this;
-        return $this;
     }
 
 }

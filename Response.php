@@ -25,7 +25,7 @@ class Response  extends Feature {
             $this->gid  = $value['Gid'];
             $this->name  = $value['Name'];
             $this->geometry = $value['Geometry'];
-            $feature->setFeature($this);
+            $feature->feature[] = $this;
         }
     }
 

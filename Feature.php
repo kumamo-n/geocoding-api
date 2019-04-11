@@ -6,12 +6,12 @@ require_once 'Geometry.php';
 class Feature {
 
     /**
-     * @var int[]
+     * @var int
      */
     public $id;
 
     /**
-     * @var int[]
+     * @var int
      */
     public $gid;
 
@@ -21,15 +21,15 @@ class Feature {
     public $name;
 
     /**
-     * @var array
+     * @var object
      */
     public $geometry;
 
     public function __construct(array $params =[])
     {
-            $this->id  = $params['Id'] ?: 0;
-            $this->gid  = $params['Gid'] ?: 0;
-            $this->name  = $params['Name'] ?: '';
-            $this->geometry = $params['Geometry'] ? new Geometry($params['Geometry']) : array();
+            $this->id  = (int)$params['Id'] ?: 0;
+            $this->gid  = (int)$params['Gid'] ?: 0;
+            $this->name  = (int)$params['Name'] ?: '';
+            $this->geometry = $params['Geometry'] ? (object)new Geometry($params['Geometry']) : (object)new Geometry([]);
     }
 }

@@ -3,14 +3,7 @@ namespace geoconding;
 
 class ApiResponseExceptions extends \Exception {
 
-    public static function notConnect($msg){
-        return new static($msg);
-    }
-
-    public static function timeout($msg){
-        return new static($msg);
-    }
-    public static function serverError($msg){
+    public static function exception($msg){
         return new static($msg);
     }
 }

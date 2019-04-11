@@ -9,19 +9,19 @@ class Geometry
     public $type;
 
     /**
-     * @var int[]
+     * @var array
      */
     public $coordinate;
 
     /**
-     * @var int[]
+     * @var array
      */
     public $BoundingBox;
 
     public function __construct(array $params = [])
     {
-        $this->type = $params['Type'];
-        $this->coordinate = $params['Coordinates'];
-        $this->BoundingBox = $params['BoundingBox'];
+        $this->type = (string)$params['Type'] ?: '';
+        $this->coordinate = (string)$params['Coordinates'] ? explode(',',$params['Coordinates']): [];
+        $this->BoundingBox = (array)$params['BoundingBox'] ? explode(',', $params['BoundingBox']) :[];
     }
 }

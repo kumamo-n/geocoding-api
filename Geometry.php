@@ -18,7 +18,7 @@ class Geometry
      */
     public $BoundingBox;
 
-    public function __construct( array $params = [] )
+    public function __construct(array $params = [])
     {
         $this->type = $params['Type'];
         $this->coordinate = $params['Coordinates'];

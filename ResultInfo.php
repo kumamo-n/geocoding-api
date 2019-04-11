@@ -39,7 +39,7 @@ class ResultInfo
      */
     public $latency;
 
-    public function __construct( array $params = [] )
+    public function __construct(array $params = [])
     {
         $this->count       = isset( $params['Count'] ) ? (int) $params['Count'] : 0;
         $this->total       = isset( $params['Total'] ) ? (int) $params['Total'] : 0;

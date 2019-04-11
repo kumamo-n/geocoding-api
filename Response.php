@@ -1,32 +1,39 @@
 <?php
 namespace geoconding;
 
+require_once 'ResultInfo.php';
 require_once 'Feature.php';
 
-class Response  extends Feature {
+class Response
+{
+    /**
+     * @var ResultInfo
+     */
+    public $result;
 
-    public $id;
+    /**
+     * @var Response[]
+     */
+    public $feature = [];
 
-    public $gid;
-
-    public $name;
-
-    public $geometry;
-
-    public $status;
-
-    public function __construct(array $params)
+    public function __construct( array $params = [])
     {
-        $this->status = $params['ResultInfo']['Status'];
-        $result = $params['Feature'];
-        $feature = new Feature();
-        foreach ($result as $key => $value) {
-            $this->id  = $value['Id'];
-            $this->gid  = $value['Gid'];
-            $this->name  = $value['Name'];
-            $this->geometry = $value['Geometry'];
-            $feature->feature[] = $this;
+        // レスポンスまとめオブジェクトを作成
+        $this->result = new ResultInfo( isset( $params['ResultInfo'] ) ? $params['ResultInfo'] : [] );
+
+        // 結果情報を保存
+        if ( isset( $params['Feature'] ) && is_array( $params['Feature'] ) ) {
+            foreach ( $params['Feature'] as $feature ) {
+                $this->feature[] = new Feature( $feature );
+            }
         }
     }
 
+    public static function emptyResponse() {
+        return [
+            new ResultInfo(),
+            new Feature()
+        ];
+    }
 }
+

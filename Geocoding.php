@@ -4,7 +4,6 @@ namespace geoconding;
 require_once 'Client.php';
 require_once 'Params.php';
 require_once 'Response.php';
-require_once 'Validate.php';
 
 class Geocoding  {
 
@@ -12,10 +11,15 @@ class Geocoding  {
         // スクリプトで実行
         $input = getopt("f:");
 
+        if (empty($input['f'])) {
+            return Response::emptyResponse();
+        }
+
         $params = new Params($input['f']);
 
         $response = Client::request($params);
         return $response;
+
     }
 }
 

@@ -7,6 +7,10 @@ require_once 'Response.php';
 
 class Geocoding  {
 
+
+    /*
+     * @return object
+     */
     public function main() {
         // スクリプトで実行
         $input = getopt("f:");
@@ -19,7 +23,6 @@ class Geocoding  {
 
         $response = Client::request($params);
         return $response;
-
     }
 }
 

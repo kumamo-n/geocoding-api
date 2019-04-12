@@ -12,7 +12,7 @@ class Geocoding  {
         $input = getopt("f:");
 
         if (empty($input['f'])) {
-            return Response::emptyResponse();
+            return new Response();
         }
 
         $params = new Params($input['f']);

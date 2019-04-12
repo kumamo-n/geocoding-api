@@ -7,32 +7,38 @@ class Params {
     const RESULT_NOT_FOUND = 'not_found';
     /**
      * アプリケーションID
+     * @var string
      */
     public $appid = 'oshigoto';
 
     /**
      * 住所文字列
+     * @var string
      */
     public $query;
 
     /**
      * 入力検索文字列のエンコード形式
+     * @var string
      */
     public $ei;
 
     /**
      * 中心の緯度
+     * @var float
      */
     public $lat;
 
     /**
      * 中心の経度
+     * @var float
      */
     public $lon;
 
     /** 指定した緯度経度の測地系：
      * wgs - 世界測地系（デフォルト）
      * tky - 日本測地系
+     * @var string
      */
     public $datum = 'tky';
 
@@ -40,7 +46,7 @@ class Params {
      * 住所コード（JIS X 0401）です。
      * 住所コードは都道府県（2桁）と市町村(5桁）を指定可能です。
      * ex) 北海道:01, 札幌市中央区:01101
-     *
+     * @var string
      */
     public $ac;
 
@@ -50,7 +56,7 @@ class Params {
      * - 市区町村レベル (ex：東京都港区)
      * - 町、大字レベル (ex：東京都港区六本木)（デフォルト）
      * - 丁目、字レベル (ex：東京都港区六本木1丁目)
-     *
+     * @var string
      */
     public $al;
 
@@ -59,18 +65,21 @@ class Params {
      * ge - 以上
      * le - 以下（デフォルト）
      * eq - 等しい
+     * @var int
      *
      */
     public $ar;
 
     /**
      * trueを指定すると、指定した住所レベルでマッチしなかった場合、上位のレベルで再検索を行います。
+     * @var string
      *
      */
     public $recursive = true;
 
     /**
      * 表示件数（デフォルト: 10、最大：100）。
+     * @var boolean
      */
     public $results;
 
@@ -78,6 +87,7 @@ class Params {
      * 出力形式：
      * xml - XML形式（デフォルト）
      * json - JSON形式
+     * @var int
      *
      */
     public $output = 'json';

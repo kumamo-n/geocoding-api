@@ -28,12 +28,5 @@ class Response
             }
         }
     }
-
-    public static function emptyResponse() {
-        return [
-            new ResultInfo(),
-            new Feature()
-        ];
-    }
 }
 

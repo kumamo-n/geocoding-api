@@ -9,6 +9,9 @@ class Client extends Response {
 
     const BASE_URL = 'https://map.yahooapis.jp/geocode/V1/geoCoder';
 
+    /*
+     * @params object
+     */
     public static function request($params) {
         $curl = curl_init();
         $param = http_build_query($params);

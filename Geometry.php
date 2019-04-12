@@ -21,7 +21,22 @@ class Geometry
     public function __construct(array $params = [])
     {
         $this->type = (string)$params['Type'] ?: '';
-        $this->coordinate = (string)$params['Coordinates'] ? explode(',',$params['Coordinates']): [];
-        $this->BoundingBox = (array)$params['BoundingBox'] ? explode(',', $params['BoundingBox']) :[];
+        $this->coordinate = $params['Coordinates'] ? explode(',',$params['Coordinates']): [];
+        $this->BoundingBox = $params['BoundingBox'] ? (array)$this->BoundingBox($params['BoundingBox']) :[];
     }
+
+    /**
+     * @return array
+     */
+    private function BoundingBox($params){
+        $toArray = [];
+        if (!empty($params)){
+            foreach (explode(" ", $params) as $boundingBox) {
+                $toArray[] = $boundingBox;
+            }
+        }
+        return $toArray;
+
+    }
+
 }

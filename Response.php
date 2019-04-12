@@ -1,5 +1,5 @@
 <?php
-namespace geoconding;
+namespace geocoding;
 
 require_once 'ResultInfo.php';
 require_once 'Feature.php';

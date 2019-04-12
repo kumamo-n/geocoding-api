@@ -1,5 +1,5 @@
 <?php
-namespace geoconding;
+namespace geocoding;
 
 
 class ResultInfo

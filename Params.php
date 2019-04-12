@@ -1,6 +1,6 @@
 <?php
 
-namespace geoconding;
+namespace geocoding;
 
 class Params {
 

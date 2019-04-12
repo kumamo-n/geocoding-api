@@ -1,5 +1,5 @@
 <?php
-namespace geoconding;
+namespace geocoding;
 
 require_once 'Geometry.php';
 

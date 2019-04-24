@@ -5,9 +5,9 @@ require_once 'Client.php';
 require_once 'Request.php';
 require_once 'Response.php';
 
-use geocoding\Request\Request;
-use geocoding\Response\Response;
-use geocoding\Client\Client;
+use geocoding\Request;
+use geocoding\Response;
+use geocoding\Client;
 
 class Geocoding  {
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace geocoding\Request;
+namespace geocoding;
 
 class Request {
 

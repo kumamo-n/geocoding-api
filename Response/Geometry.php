@@ -1,5 +1,5 @@
 <?php
-namespace geocoding\Response\Geometry;
+namespace geocoding\Response;
 
 class Geometry
 {

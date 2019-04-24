@@ -10,7 +10,7 @@ class Request {
      * アプリケーションID
      * @var string
      */
-    public $appid = 'appid';
+    public $appid = null;
 
     /**
      * 住所文字列
@@ -88,7 +88,8 @@ class Request {
      * 出力形式：
      * xml - XML形式（デフォルト）
      * json - JSON形式
-     * @var int
+     * @var string
+     * @deprecated  'json' 固定です
      *
      */
     public $output;

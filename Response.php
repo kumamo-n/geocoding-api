@@ -1,8 +1,8 @@
 <?php
 namespace geocoding;
 
-require_once 'ResultInfo.php';
-require_once 'Feature.php';
+require_once 'Response/ResultInfo.php';
+require_once 'Response/Feature.php';
 
 class Response
 {
@@ -12,7 +12,7 @@ class Response
     public $result;
 
     /**
-     * @var Response[]
+     * @var Feature[]
      */
     public $feature = [];
 

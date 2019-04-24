@@ -1,11 +1,16 @@
 <?php
-namespace geoconding;
-require_once 'Geocoding.php';
+namespace geocoding;
+require_once 'test/Geocoding.php';
+
+use geocoding\test\Geocoding;
+
 
 $result = new Geocoding();
 
 //　呼び出し
-foreach ($result->main() as $value) {
+var_dump($result->main());
+exit;
+foreach ($result->main()->feature as $value) {
     echo $value->id;
     echo $value->gid;
     echo $value->name;

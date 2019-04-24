@@ -1,12 +1,15 @@
 <?php
-namespace geocoding;
+namespace geocoding\test;
 
 require_once 'Client.php';
 require_once 'Params.php';
 require_once 'Response.php';
 
-class Geocoding  {
+use geocoding\Response;
+use geocoding\Params;
+use geocoding\Client;
 
+class Geocoding  {
 
     /*
      * @return object

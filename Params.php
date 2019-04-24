@@ -5,11 +5,13 @@ namespace geocoding;
 class Params {
 
     const RESULT_NOT_FOUND = 'not_found';
+
+    const JSON = 'json';
     /**
      * アプリケーションID
      * @var string
      */
-    public $appid = 'oshigoto';
+    public $appid;
 
     /**
      * 住所文字列
@@ -40,7 +42,7 @@ class Params {
      * tky - 日本測地系
      * @var string
      */
-    public $datum = 'tky';
+    public $datum = 'wgs';
 
     /**
      * 住所コード（JIS X 0401）です。
@@ -90,7 +92,7 @@ class Params {
      * @var int
      *
      */
-    public $output = 'json';
+    public $output = self::JSON;
 
     public function __construct($query)
     {

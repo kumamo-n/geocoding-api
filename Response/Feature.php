@@ -21,7 +21,7 @@ class Feature {
     public $name;
 
     /**
-     * @var object
+     * @var Geometry
      */
     public $geometry;
 

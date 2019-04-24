@@ -1,5 +1,5 @@
 <?php
-namespace geocoding;
+namespace geocoding\ApiResponseExceptions;
 
 class ApiResponseExceptions extends \Exception {
 

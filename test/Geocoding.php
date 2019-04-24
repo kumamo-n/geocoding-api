@@ -2,12 +2,12 @@
 namespace geocoding\test;
 
 require_once 'Client.php';
-require_once 'Params.php';
+require_once 'Request.php';
 require_once 'Response.php';
 
-use geocoding\Response;
-use geocoding\Params;
-use geocoding\Client;
+use geocoding\Request\Request;
+use geocoding\Response\Response;
+use geocoding\Client\Client;
 
 class Geocoding  {
 
@@ -22,7 +22,7 @@ class Geocoding  {
             return new Response();
         }
 
-        $params = new Params($input['f']);
+        $params = new Request($input['f']);
 
         $response = Client::request($params);
         return $response;

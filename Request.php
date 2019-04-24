@@ -1,8 +1,8 @@
 <?php
 
-namespace geocoding;
+namespace geocoding\Request;
 
-class Params {
+class Request {
 
     const RESULT_NOT_FOUND = 'not_found';
 
@@ -11,7 +11,7 @@ class Params {
      * アプリケーションID
      * @var string
      */
-    public $appid;
+    public $appid = null;
 
     /**
      * 住所文字列

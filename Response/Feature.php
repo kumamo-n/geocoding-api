@@ -1,7 +1,9 @@
 <?php
-namespace geocoding;
+namespace geocoding\Response\Feature;
 
 require_once 'Geometry.php';
+
+use geocoding\Response\Geometry\Geometry;
 
 class Feature {
 

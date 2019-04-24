@@ -1,8 +1,11 @@
 <?php
-namespace geocoding;
+namespace geocoding\Response;
 
 require_once 'Response/ResultInfo.php';
 require_once 'Response/Feature.php';
+
+use geocoding\Response\ResultInfo\ResultInfo;
+use geocoding\Response\Feature\Feature;
 
 class Response
 {

@@ -1,8 +1,10 @@
 <?php
-namespace  geocoding;
+namespace  geocoding\Client;
 
 require_once 'Response.php';
 require_once 'ApiResponseExceptions.php';
+
+use geocoding\Response\Response;
 
 class Client extends Response {
 

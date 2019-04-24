@@ -1,7 +1,7 @@
 <?php
 namespace geocoding\test;
 
-require_once 'Client.php';
+require_once 't Client.php';
 require_once 'Request.php';
 require_once 'Response.php';
 

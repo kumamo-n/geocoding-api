@@ -12,6 +12,10 @@ class Client extends Response {
      * @params object
      */
     public static function request($params) {
+        if (is_object($params)) {
+            $params = get_object_vars($params);
+        }
+        $params['output'] = 'json';
         $curl = curl_init();
         $param = http_build_query($params);
         curl_setopt_array($curl, [

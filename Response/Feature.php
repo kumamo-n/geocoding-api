@@ -30,6 +30,6 @@ class Feature {
             $this->id  = (int)$params['Id'] ?: 0;
             $this->gid  = (int)$params['Gid'] ?: 0;
             $this->name  = (string)$params['Name'] ?: '';
-            $this->geometry = $params['Geometry'] ? (object)new Geometry($params['Geometry']) : (object)new Geometry([]);
+            $this->geometry = $params['Geometry'] ? new Geometry($params['Geometry']) : new Geometry([]);
     }
 }
